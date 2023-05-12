@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #333;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff5c5c;
+    transform: scale(1.1);
+  }
+  
+  .nav-links a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ff5c5c;
+    transition: width 0.3s;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    nav {
+      justify-content: center;
+    }
+  
+    .nav-links {
+      display: none;
+    }
+  
+    .nav-links li {
+      margin: 0 10px;
+    }
+  
+    .nav-links a {
+      font-size: 16px;
+    }
+  
+    .nav-links a::after {
+      display: none;
+    }
+  
+    .burger {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+  
+    .nav-active .burger div:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+  
+    .nav-active .burger div:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .nav-active .burger div:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  
+    .nav-active .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #333;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      transition: transform 0.3s ease-in;
+      transform: translateY(-100%);
+    }
+  
+    .nav-active .nav-links li {
+      opacity: 0;
+    }
+  
+    .nav-active .nav-links li a {
+      opacity: 1;
+      transition: opacity 0.3s ease-in;
+    }
+  
+    .nav-active .nav-links li:nth-child(1) {
+      transition-delay: 0.2s;
+    }
+  
+    .nav-active .nav-links li:nth-child(2) {
+      transition-delay: 0.3s;
+    }
+  
+    .nav-active .nav-links li:nth-child(3) {
+      transition-delay: 0.4s;
+    }
+  
+    .nav-active .nav-links li:nth-child(4) {
+      transition-delay: 0.5s;
+    }
+  
+    .nav-active .nav-links li:nth-child(5) {
+      transition-delay: 0.6s;
+    }
+  
+    .nav-active .nav-links li:nth-child(6) {
+      transition-delay: 0.7s;
+    }
+  
+    .nav-active .nav-links li:nth-child(1) a {
+      transition-delay: 0.7s;
+    }
+  
+    .nav-active .nav-links li:nth-child(2) a {
+      transition-delay: 0.6s;
+    }
+  
+    .nav-active .nav-links li:nth-child(3) a {
+      transition-delay: 0.5s;
+    }
+  
+    .nav-active .nav-links li:nth-child(4) a {
+      transition-delay: 0.4s;
+    }
+  
+    .nav-active .nav-links li:nth-child(5) a {
+      transition-delay: 0.3s;
+    }
+  
+    .nav-active .nav-links li:nth-child(6) a {
+        transition-delay: 0.2s;
+    }
+}
+
+    /* Styles pour la section d'accueil */
+
+    .hero-section {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000000;
+        text-align: center;
+    }
+    
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://itsocial.fr/wp-content/uploads/2021/05/comtrade-ai-banner.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+    }
+    
+    .content {
+        z-index: 1;
+    }
+    
+    h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    
+    button {
+        background-color: #ff5c5c;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #ff3b3b;
+    }
+
+    
+    /* Styles pour le pop-up */
+    
+    .popup {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease-in-out;
+        animation-delay: 5s; /* Ajout du délai de 5 secondes */
+    }
+    @keyframes fadeIn {
+        from {
+        opacity: 0;
+        }
+        to {
+        opacity: 1;
+        }
+    }
+    
+    @keyframes scaleIn {
+        from {
+        transform: scale(0.7);
+        }
+        to {
+        transform: scale(1);
+        }
+
+        
+    }
+    
+      .popup-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        animation: scaleIn 0.3s ease-in-out;
+    }
+    
+    
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .arrow {
+        margin-left: 5px;
+      }
+    
+    /* Styles pour les médias mobiles */
+    
+    @media screen and (max-width: 768px) {
+        h1 {
+        font-size: 24px;
+        }
+        
+        button {
+        font-size: 16px; 
+        
+    }
+    
+    }
+   /* Styles pour la section "Experiences" */
+
+#experiences {
+    padding: 40px;
+  }
+  
+  #experiences h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #080505;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  .experience {
+    margin-bottom: 30px;
+    background-color: #080707;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .experience h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .experience h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .experience p {
+    margin-bottom: 10px;
+    color: #777;
+  }
+  
+  .experience ul {
+    margin-top: 0;
+    padding-left: 20px;
+  }
+  
+  .experience li {
+    margin-bottom: 5px;
+    color: #777;
+  }
+  
+  /* Styles pour la section "Competences" */
+
+#competences {
+    padding: 40px;
+  }
+  
+  #competences h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .skill {
+    margin-bottom: 30px;
+  }
+  
+  .skill h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 15px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #ff5c5c;
+    width: 0;
+    transition: width 1s ease-in-out;
+  }
+  
+  /* Styles pour la section "Diplomes" */
+
+#diplomes {
+    padding: 40px;
+  }
+  
+  #diplomes h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .diploma {
+    margin-bottom: 30px;
+  }
+  
+  .diploma h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .diploma p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Styles pour les sections "Contact" et "Loisirs" */
+
+#contact, #loisirs {
+    padding: 40px;
+  }
+  
+  #contact h2, #loisirs h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .contact-info, .hobbies-list {
+    margin-bottom: 30px;
+  }
+  
+  .contact-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p, .hobbies-list li {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Styles pour le footer */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .footer-container p {
+    font-size: 14px;
+  }
+  
+  /* Autres styles pour le reste du CV */
+  
+  /* Styles pour la barre de navigation */
+  
+  nav {
+    /* ... */
+  }
+  
+  /* Autres styles pour le reste du CV */
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+    
+
+    
+    
+    
+    
+    
+    
